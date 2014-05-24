@@ -1,15 +1,3 @@
-var field = new Array(25);
-var pigeons = [];
-var bread = [];
-var interval;
-var numCycles = 0;
-
-pigeons.push(new Pigeon());
-pigeons.push(new Pigeon());
-
-initField(field,pigeons);
-
-printField(field);
 
 function Bread (x,y,e) {
 	this._location = {x:x,y:y};
@@ -86,6 +74,7 @@ function start () {
 }
 
 function startOne () {
+
 	update();
 }
 
@@ -213,8 +202,6 @@ function getOptimalSubset(solutionMatrix, weights) {
 	var numItems = 0;
 	var i = solutionMatrix.length - 1;
 	for (var j = solutionMatrix[0].length - 1; j >= 0 && i > 0; i--) {
-		// If the item is in the optimal subset, add it and subtract its weight
-		// from the column we are checking.
 		if (solutionMatrix[i][j] != solutionMatrix[i-1][j]) {
 			subset[numItems] = i;
 			j -= Number(weights[i-1]);

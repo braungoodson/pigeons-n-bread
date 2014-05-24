@@ -1,6 +1,8 @@
 <!doctype html>
-<html>
+<html lang="en">
 	<head>
+		<meta charset="utf-8" />
+		<title>pigeons n bread</title>
 		<style>
 			div.space,
 			div.bread,
@@ -20,13 +22,32 @@
 				border:1px solid blue;
 				background-color:blue;	
 			}
+			span#cycles {
+				display:none;
+			}
 		</style>
 	</head>
 <body onload="startOne();">
-	<button onclick="start();">start</button>
-	<button onclick="stop();">stop</button>
-	<span id="cycles">0</span>
-	<div id="stage"></div>
+	<center>
+		<!-- button onclick="start();">start</button -->
+		<!-- button onclick="stop();">stop</button -->
+		<span id="cycles"></span>
+		<div id="stage"></div>
+	</center>
 	<script src="src/index.js"></script>
+	<script>
+		var field = new Array(25);
+		var pigeons = [];
+		var bread = [];
+		var interval;
+		var numCycles = 0;
+
+		pigeons.push(new Pigeon());
+		pigeons.push(new Pigeon());
+
+		initField(field,pigeons);
+
+		printField(field);
+	</script>
 </body>
 </html>
