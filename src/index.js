@@ -5,6 +5,7 @@ var interval;
 var numCycles = 0;
 
 pigeons.push(new Pigeon());
+pigeons.push(new Pigeon());
 
 initField(field,pigeons);
 
@@ -38,8 +39,12 @@ function Bread (x,y,e) {
 }
 
 function Pigeon () {
-	this.id = Math.random();
+	this._id = (Math.random()*0xFFFFFF<<0).toString(16);
 	this._location = {x:0,y:0};
+
+	this.id = function () {
+		return this._id;
+	}
 
 	this.location = function (x,y) {
 		if (x && y) {
@@ -66,7 +71,10 @@ function Pigeon () {
 		var subset = getOptimalSubset(matrix,weights);
 		console.log(subset,matrix[weights.length][capacity]);
 		for (var i = 0; i < subset.length; i++) {
-			bread[subset[i]-1].e().innerHTML = '&nbsp;'+(i+1);
+			var e = document.createElement('span');
+			e.style.backgroundColor = '#'+this.id();
+			e.innerHTML = '*';
+			bread[subset[i]-1].e().appendChild(e);
 		}
 	}
 }
@@ -75,6 +83,10 @@ function start () {
 	if (!interval) {
 		interval = setInterval(update,1000);
 	}
+}
+
+function startOne () {
+	update();
 }
 
 function stop () {

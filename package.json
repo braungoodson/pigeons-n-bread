@@ -1,7 +1,7 @@
 {
   "name": "learning-algorithms-0001",
   "version": "0.0.0",
-  "description": "",
+  "description": "pigeons n bread",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,10 @@
   "devDependencies": {
     "grunt-contrib-watch": "~0.6.1",
     "grunt-cli": "~0.1.13",
-    "grunt": "~0.4.5"
+    "grunt": "~0.4.5",
+    "karma": "~0.12.16",
+    "karma-jasmine": "~0.1.5",
+    "karma-chrome-launcher": "~0.1.4",
+    "jasmine-core": "~2.0.0"
   }
 }
